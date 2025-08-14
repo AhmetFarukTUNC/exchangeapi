@@ -24,6 +24,10 @@ currency-converter/
 
 ---
 
+📷 Screenshots
+
+![Home Screen](https://github.com/AhmetFarukTUNC/notepad/blob/main/images/kaydol.jpg)
+
 ## 🚀 How to Run
 
 ### 1. Clone the repository
@@ -53,9 +57,7 @@ http://127.0.0.1:5000/convert?from=USD&to=TRY&amount=100
 
 Simply open index.html in your browser and use the currency converter.
 
-📷 Screenshots
 
-![Home Screen](https://github.com/AhmetFarukTUNC/notepad/blob/main/images/kaydol.jpg)
 
 
 💻 Example API Response
