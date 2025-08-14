@@ -55,8 +55,7 @@ Simply open index.html in your browser and use the currency converter.
 
 📷 Screenshots
 
-![Front-end UI](https://github.com/AhmetFarukTUNC/exchangeapi/edit/main/ReadMe.md)
-![API Response](screenshots/api.png)
+![Home Screen](https://github.com/AhmetFarukTUNC/notepad/blob/main/images/kaydol.jpg)
 
 
 💻 Example API Response
