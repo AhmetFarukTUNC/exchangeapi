@@ -16,7 +16,7 @@ A modern **Currency Converter** project using **Flask API** and a **responsive H
 
 ## 🛠️ Project Structure
 
-currency-converter/
+exchangeapi/
 ├─ app.py # Flask API
 ├─ index.html # Front-end UI
 ├─ README.md
