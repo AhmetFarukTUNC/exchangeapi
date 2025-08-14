@@ -1,17 +1,45 @@
+from flask import Flask, request, jsonify
 import requests
 import json
+from flask_cors import CORS  # <-- Bunu ekle
 
-api_key = "<you can input your api key>"
-api_url = f"https://v6.exchangerate-api.com/v6/{api_key}/latest/"
+app = Flask(__name__)
+CORS(app)  # <-- Tüm alanlardan gelen isteklere izin verir
 
-bozulan_doviz = input("Bozdurulan döviz türü: ") # USD
-alinan_doviz = input("Alınacak döviz türü : ") # TRY
-miktar = int(input(f"Ne kadar {bozulan_doviz} bozdurmak istiyorsunuz: ")) # Ne kadar USD 
+API_KEY = "6cad53ea6437f497f2c8e9d2"
+BASE_URL = f"https://v6.exchangerate-api.com/v6/{API_KEY}/latest/"
 
-sonuc = requests.get(api_url + bozulan_doviz)
-sonuc_json = json.loads(sonuc.text)
+@app.route("/convert", methods=["GET"])
+def convert_currency():
+    bozulan_doviz = request.args.get("from")  # Örn: USD
+    alinan_doviz = request.args.get("to")     # Örn: TRY
+    miktar = request.args.get("amount", type=float)
 
-# print(sonuc_json["conversion_rates"][alinan_doviz])
+    if not bozulan_doviz or not alinan_doviz or miktar is None:
+        return jsonify({"error": "Eksik parametre. from, to, amount gerekli"}), 400
 
-print("1 {0} = {1} {2}".format(bozulan_doviz,sonuc_json["conversion_rates"][alinan_doviz], alinan_doviz))
-print("{0} {1} = {2} {3}".format(miktar, bozulan_doviz, miktar * sonuc_json["conversion_rates"][alinan_doviz], alinan_doviz))
+    try:
+        response = requests.get(BASE_URL + bozulan_doviz.upper())
+        data = response.json()
+
+        if "conversion_rates" not in data:
+            return jsonify({"error": "API'den veri alınamadı", "details": data}), 500
+
+        oran = data["conversion_rates"].get(alinan_doviz.upper())
+        if oran is None:
+            return jsonify({"error": f"{alinan_doviz} para birimi bulunamadı"}), 400
+
+        sonuc = miktar * oran
+
+        return jsonify({
+            "from": bozulan_doviz.upper(),
+            "to": alinan_doviz.upper(),
+            "amount": miktar,
+            "rate": oran,
+            "converted_amount": sonuc
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+if __name__ == "__main__":
+    app.run(debug=True)

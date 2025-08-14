@@ -1,67 +1,80 @@
-# Currency Converter
+# Currency Converter Web App 💰
 
-This project is a simple currency converter that allows users to input:
+A modern **Currency Converter** project using **Flask API** and a **responsive HTML front-end** with Bootstrap 5.
 
-The amount they want to convert.
+---
 
-The currency they want to convert from.
+## 📌 Features
 
-The currency they want to convert to.
+- Convert any currency to another using **ExchangeRate API**.
+- Fetches real-time conversion rates.
+- Responsive and modern UI with Bootstrap.
+- JSON API endpoint for programmatic access.
+- CORS enabled for cross-origin requests.
 
-The converter fetches real-time exchange rates and returns the converted amount.
+---
 
-## Features
+## 🛠️ Project Structure
 
-Supports all major currencies.
+currency-converter/
+├─ app.py # Flask API
+├─ index.html # Front-end UI
+├─ README.md
 
-Fetches live exchange rates.
 
-Simple input for amount, source currency, and target currency.
+---
 
-## Requirements
+## 🚀 How to Run
 
-Python 3.x
+### 1. Clone the repository
 
-requests library
+```bash
 
-Install the required libraries with:
+git clone https://github.com/AhmetFarukTUNC/exchangeapi
 
-pip install requests
+cd exchangeapi
 
-pip install json
+2. Install dependencies
 
-## Usage
+pip install flask requests flask-cors
 
-Replace <you can input your api key> in the code with your actual API key from Exchange Rate API.
 
-Run the script with:
+3. Run Flask API
 
-python exchange.py
+python app.py
 
-Example input:
+API will run on http://127.0.0.1:5000/convert
 
-Bozdurulan döviz türü: USD
+Query Example:
 
-Alınacak döviz türü: TRY
+http://127.0.0.1:5000/convert?from=USD&to=TRY&amount=100
 
-Ne kadar USD bozdurmak istiyorsunuz: 1000
+4. Open Front-end
 
-Example output:
+Simply open index.html in your browser and use the currency converter.
 
-1 USD = 27 TRY
+📷 Screenshots
 
-1000 USD = 27000 TRY
+1️⃣ Front-end UI: ![Front-end UI](screenshots/ui.png)
 
-## API Information
 
-This project uses the Exchange Rates API to fetch real-time currency data.
 
-## Contribution
+2️⃣ API JSON Response: ![API Response](screenshots/api.png)
 
-Fork the repository.
+💻 Example API Response
 
-Create a new branch.
+{
+    "from": "USD",
+    "to": "TRY",
+    "amount": 100,
+    "rate": 33.45,
+    "converted_amount": 3345.0
+}
 
-Make your changes and commit with a descriptive message.
 
-Push the branch and create a pull request.
+⚡ Notes
+
+Make sure to replace API_KEY in app.py with your own ExchangeRate API key.
+
+CORS is enabled, so you can fetch from different domains.
+
