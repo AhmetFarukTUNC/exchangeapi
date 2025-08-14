@@ -26,7 +26,9 @@ exchangeapi/
 
 📷 Screenshots
 
-![Home Screen](https://github.com/AhmetFarukTUNC/notepad/blob/main/images/kaydol.jpg)
+![Home Screen](https://github.com/AhmetFarukTUNC/exchangeapi/blob/main/2.png)
+
+![Home Screen](https://github.com/AhmetFarukTUNC/exchangeapi/blob/main/1.png)
 
 ## 🚀 How to Run
 
