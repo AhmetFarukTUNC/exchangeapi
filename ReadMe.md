@@ -55,7 +55,7 @@ Simply open index.html in your browser and use the currency converter.
 
 📷 Screenshots
 
-1️⃣ Front-end UI: ![Front-end UI](screenshots/ui.png)
+![Front-end UI](screenshots/ui.png)
 
 
 
