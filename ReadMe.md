@@ -55,11 +55,9 @@ Simply open index.html in your browser and use the currency converter.
 
 📷 Screenshots
 
-![Front-end UI](screenshots/ui.png)
+![Front-end UI](https://github.com/AhmetFarukTUNC/exchangeapi/edit/main/ReadMe.md)
+![API Response](screenshots/api.png)
 
-
-
-2️⃣ API JSON Response: ![API Response](screenshots/api.png)
 
 💻 Example API Response
 
